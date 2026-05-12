@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas especiales ✨</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background-image: url('hello.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin:0;
+    padding:20px;
+    color:#333;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+}
+
+h1,h2{
+    text-align:center;
+}
+
+.question{
+    display:none;
+}
+
+.question.active{
+    display:block;
+}
+
+button.option{
+    display:block;
+    width:100%;
+    margin:10px 0;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#f7d7ff;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button.option:hover{
+    background:#efc4ff;
+}
+
+.option img{
+    width:150px;
+    display:block;
+    margin:auto;
+    margin-bottom:8px;
+}
+
+.message{
+    margin-top:15px;
+    padding:15px;
+    border-radius:12px;
+    background:#fff7d6;
+    display:none;
+    white-space:pre-line;
+}
+
+.summary{
+    display:none;
+}
+
+#nextBtn, #finishBtn{
+    display:none;
+    margin-top:15px;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#f7d7ff;
+    cursor:pointer;
+    width:100%;
+    font-size:16px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- PREGUNTA 1 -->
+<div id="q1" class="question active">
+<h1>Hola 👋🏻 ¿Qué tal? ¿Cómo estás?</h1>
+<p>
+En esta página web solo queremos hacerte un par de preguntas.
+Descuida, las primeras son protocolarias.
+La importante es la última 😉
+</p>
+
+<h2>Elige tu nombre completo</h2>
+
+<button class="option"
+onclick="errorMessage('😱 ¿Cómo?!!! ¿Eres familia de la famosa actriz y no lo sabíamos?')">
+Jennifer Saraí Lawrence Rodríguez
+</button>
+
+<button class="option"
+onclick="errorMessage('😲 ¿Quéee? ¿Eres Mary Jein???? ¿La vecina de la cual Peter Parker pasa hablando??')">
+Jein Mary Watson
+</button>
+
+<button class="option"
+onclick="correctMessage('✨ Excelente, acertaste Jenni.',2,'Jennifer Saraí Colindres Rodríguez')">
+Jennifer Saraí Colindres Rodríguez
+</button>
+
+<button class="option"
+onclick="errorMessage('🙄 Lea bien, cipota. ¿Acaso no aprendió nada en la escuela? No te digo...')">
+Jenifer Sarai Kolindres Rodrigues
+</button>
+</div>
+
+
+<!-- PREGUNTA 2 -->
+<div id="q2" class="question">
+
+<h2>Elige tu fecha de nacimiento</h2>
+
+<button class="option"
+onclick="errorMessage('🤔 Esa fecha te haría tener un día de más.')">
+23/10/2006
+</button>
+
+<button class="option"
+onclick="correctMessage('😌 Qué bueno que se acuerda cuándo nació al menos. De algo tenía que acordarse.',3,'24/10/2006')">
+24/10/2006
+</button>
+
+<button class="option"
+onclick="errorMessage('😅 Un año más joven tampoco. Revise bien la fecha.')">
+24/10/2007
+</button>
+
+<button class="option"
+onclick="errorMessage('👀 Casi… pero hasta el mes está mal. Fíjese bien.')">
+24/11/2006
+</button>
+
+</div>
+
+
+<!-- PREGUNTA 3 -->
+<div id="q3" class="question">
+
+<h2>Entonces tu cumpleaños es:</h2>
+
+<button class="option"
+onclick="errorMessage('❌ No es esa, Mary Jein.')">
+23 de Octubre
+</button>
+
+<button class="option"
+onclick="correctMessage('✨ Exactamente, Jenni.',4,'24 de Octubre')">
+24 de Octubre
+</button>
+
+<button class="option"
+onclick="errorMessage('❌ No es esa, Jennifer Lawrence.')">
+24 de Septiembre
+</button>
+
+<button class="option"
+onclick="errorMessage('❌ No es esa, Jennifer Aniston.')">
+24 de Noviembre
+</button>
+
+</div>
+
+
+<!-- PREGUNTA FINAL -->
+<div id="q4" class="question">
+
+<h2>Ok, gracias por contestarlas 😊</h2>
+<p>
+Esas solo eran protocolo.
+Ahora sí… La más importante.
+<strong>¿Qué elegirías?</strong>
+</p>
+
+<button class="option"
+onclick="finalMessage(
+'🎀 Peluche Hello Kitty',
+'🎀 Buena elección.\n\nY por si las dudas: es falso eso que dicen de que Hello Kitty significa “Hola Demonio”.\n\nSu nombre viene de Kitty White de Alicia a través del espejo, y representa amistad, ternura y cariño.\n\nAsí que sí, está perfectamente bien elegirlo 😊'
+)">
+<img src="kitty.jpeg">
+🎀 Peluche llavero de Hello Kitty
+</button>
+
+<button class="option"
+onclick="finalMessage(
+'🎨 Dibujo personalizado',
+'🎨 Excelente elección.\n\nUn dibujo personalizado siempre tiene algo especial, porque queda hecho a tu gusto y con dedicación.\n\nMuy buena decisión 😊'
+)">
+<img src="dibujo.jpeg">
+🎨 Dibujo personalizado como quieras
+</button>
+
+<button class="option"
+onclick="errorMessage('🤨 Me pregunto...\n\n¿Para qué querrías un oso como mascota?\n\n¿Estás loca? 😂\nTener un oso suena divertido… hasta que se coma tu comida o quiera dormir en tu cama 🐻\n\nDefinitivamente no se te permite elegir eso.')">
+<img src="oso.jpeg">
+🐻 Un oso de 4 pies como mascota
+</button>
+
+<button class="option"
+onclick="errorMessage('🚗 El carro que tú quieras suena bonito y la intención está… pero seguimos sin presupuesto 😅 Y Soñar no cuesta nada pero comprarlo sí!💸\n\nAsí que no se te permite elegir esa opción.')">
+<img src="carro.jpeg">
+🚗 El carro que tú quieras
+</button>
+
+<button class="option"
+onclick="errorMessage('✈️ Con que un Viaje gratis a donde Nain le decida dar... 😌\n\nAunque pensándolo bien… ya haces el mejor viaje cada vez que vas a la presencia de Dios en la iglesia ⛪🤍\n\nAsí que no se te permite elegir esa opción porque no tendría sentido.')">
+<img src="avion.jpeg">
+✈️ Viaje gratis a donde Nain le decida dar
+</button>
+
+</div>
+
+
+<div id="message" class="message"></div>
+
+<button id="nextBtn" onclick="goNext()">
+Siguiente →
+</button>
+
+<button id="finishBtn" onclick="finishFinal()">
+Finalizar →
+</button>
+
+<div id="summary" class="summary">
+<h2>Gracias por participar 📸</h2>
+<p>Tus respuestas fueron:</p>
+<ul id="answers"></ul>
+<p>Ahora comparte una captura de pantalla y mandela al propietario. 😊</p>
+</div>
+
+</div>
+
+<script>
+const respuestas = [];
+let pendingNext = null;
+let finalPending = null;
+
+function errorMessage(text){
+    const msg = document.getElementById('message');
+    msg.style.display='block';
+    msg.innerText=text;
+
+    document.getElementById('nextBtn').style.display='none';
+    document.getElementById('finishBtn').style.display='none';
+}
+
+function correctMessage(text,nextNum,realAnswer){
+    const msg = document.getElementById('message');
+    msg.style.display='block';
+    msg.innerText=text;
+
+    respuestas.push(realAnswer);
+    pendingNext = nextNum;
+
+    document.getElementById('nextBtn').style.display='block';
+    document.getElementById('finishBtn').style.display='none';
+}
+
+function goNext(){
+    document.querySelectorAll('.question')
+    .forEach(q=>q.classList.remove('active'));
+
+    document.getElementById('message').style.display='none';
+    document.getElementById('nextBtn').style.display='none';
+
+    document.getElementById('q'+pendingNext)
+    .classList.add('active');
+}
+
+function finalMessage(answer,text){
+    finalPending = answer;
+
+    const msg = document.getElementById('message');
+    msg.style.display='block';
+    msg.innerText=text;
+
+    document.getElementById('nextBtn').style.display='none';
+    document.getElementById('finishBtn').style.display='block';
+}
+
+function finishFinal(){
+    respuestas.push(finalPending);
+
+    document.querySelectorAll('.question')
+    .forEach(q=>q.style.display='none');
+
+    const list=document.getElementById('answers');
+    list.innerHTML='';
+
+    respuestas.forEach(r=>{
+        const li=document.createElement('li');
+        li.textContent=r;
+        list.appendChild(li);
+    });
+
+    document.getElementById('message').style.display='none';
+    document.getElementById('finishBtn').style.display='none';
+    document.getElementById('summary').style.display='block';
+}
+</script>
+
+</body>
+</html>
